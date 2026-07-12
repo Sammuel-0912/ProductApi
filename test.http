@@ -1,0 +1,24 @@
+### 1. 取得所有商品（測試 GET）
+GET http://localhost:5226/api/products
+
+###
+
+### 2. 新增一個新商品（測試 POST）
+POST http://localhost:5226/api/products
+Content-Type: application/json
+
+{
+    "name": "5K螢幕",
+    "price": 20000,
+    "stock": 5
+}
+
+### 測試 3. 惡意新增：價格低於 0 元的商品
+POST http://localhost:5226/api/products
+Content-Type: application/json
+
+{
+    "name": "被詛咒的商品",
+    "price": -500,
+    "stock": 10
+}

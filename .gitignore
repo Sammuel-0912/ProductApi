@@ -1,0 +1,32 @@
+# ===== .NET 編譯輸出 =====
+bin/
+obj/
+out/
+
+# ===== Visual Studio / VS Code / Rider =====
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.idea/
+
+# ===== SQLite 資料庫(本機資料,不應進版控) =====
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# ===== 機密設定(連線字串、金鑰等) =====
+appsettings.Development.json
+appsettings.*.local.json
+secrets.json
+*.env
+.env
+
+# ===== 其他 =====
+*.log
+[Tt]humbs.db
+.DS_Store
