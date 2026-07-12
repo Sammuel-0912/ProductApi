@@ -14,6 +14,10 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.9" />
+
+    <!-- 💡 釘住已修補版本，覆蓋上層帶進來的有漏洞間接套件 -->
+    <PackageReference Include="Microsoft.OpenApi" Version="2.10.0" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="3.0.3" />
   </ItemGroup>
 
 </Project>

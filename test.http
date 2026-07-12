@@ -22,3 +22,43 @@ Content-Type: application/json
     "price": -500,
     "stock": 10
 }
+
+### 測試 DTO 新增：不用傳入 id，資料庫會自動遞增生成
+POST http://localhost:5226/api/products
+Content-Type: application/json
+
+{
+    "name": "Philips降噪耳機 Wh-1000xm5",
+    "price": 9980,
+    "stock": 20
+}
+
+### 1. 檢視初始購物車 (應該是空的，總金額 0)
+GET http://localhost:5226/api/cart
+
+###
+
+### 2. 加入 1 個「高階人體工學椅」(ProductId: 1) 到購物車
+POST http://localhost:5226/api/cart/items
+Content-Type: application/json
+
+{
+    "productId": 1,
+    "quantity": 1
+}
+
+###
+
+### 3. 再加入 2 個「機械鍵盤」(ProductId: 2) 到購物車
+POST http://localhost:5226/api/cart/items
+Content-Type: application/json
+
+{
+    "productId": 2,
+    "quantity": 2
+}
+
+###
+
+### 4. 再次檢視購物車 (神奇的自動加總成果！)
+GET http://localhost:5226/api/cart

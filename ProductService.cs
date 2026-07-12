@@ -4,27 +4,16 @@ using Microsoft.EntityFrameworkCore;
 public class Product
 {
     // Id 為主鍵，由資料庫自動遞增產生，新增時不需前端提供
-    public int Id { get; set; }
-
-    [Required(ErrorMessage = "商品名稱不能為空")]
-    [StringLength(100, MinimumLength = 2, ErrorMessage = "商品名稱長度必須介於2~100之間")]
+    public int Id { get; set; } // SQLite 會自動將名為 Id 的 int 欄位設為自動遞增主鍵 (Auto-increment)
     public string Name { get; set; } = string.Empty;
-
-    [Required(ErrorMessage = "商品價格是必填欄位")]
-    [Range(1, 100000, ErrorMessage = "商品價格必須在1元到100,000之間")]
     public decimal Price { get; set; }
-
-    [Required(ErrorMessage = "商品庫存是必填")]
-    [Range(0, int.MaxValue, ErrorMessage = "庫存不能為負數")]
     public int Stock { get; set; }
 
     //為了方便建立初始資料，加上一個建構子
-
     public Product() { }
 
-    public Product(int id, string name, decimal price, int stock)
+    public Product(string name, decimal price, int stock)
     {
-        Id = id;
         Name = name;
         Price = price;
         Stock = stock;
